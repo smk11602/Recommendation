@@ -2,6 +2,7 @@ package com.myfirstandroidapp.bookmark
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -9,19 +10,27 @@ import com.myfirstandroidapp.bookmark.databinding.ItemRecommendationBinding
 
 
 
-class RecommendationAdapter(private val recommendationViewModel : RecommendationViewModel) : RecyclerView.Adapter<RecommendationAdapter.MyViewHolder>() {
+class RecommendationAdapter(private val recommendationViewModel: RecommendationViewModel, private val isBookmarkVisible: Boolean)
+    : RecyclerView.Adapter<RecommendationAdapter.MyViewHolder>() {
 
     private var recommendationList = emptyList<Recommendation>()
 
-    // 뷰 홀더에 데이터를 바인딩
-    class MyViewHolder(private val binding: ItemRecommendationBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MyViewHolder(private val binding: ItemRecommendationBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        lateinit var recommendation : Recommendation
+        lateinit var recommendation: Recommendation
         lateinit var recommendationViewModel: RecommendationViewModel
 
-        fun bind(currentRecommendation: Recommendation , recommendationViewModel : RecommendationViewModel) {
+        fun bind(currentRecommendation: Recommendation, recommendationViewModel: RecommendationViewModel) {
             binding.recommendation = currentRecommendation
             this.recommendationViewModel = recommendationViewModel
+
+            //즐찾버튼 숨김/보임
+            if (!isBookmarkVisible) {
+                binding.BookmarkCheckButton.visibility = View.GONE
+            } else {
+                binding.BookmarkCheckButton.visibility = View.VISIBLE
+            }
+
 
             binding.BookmarkCheckButton.setOnCheckedChangeListener(null)
 
@@ -52,13 +61,16 @@ class RecommendationAdapter(private val recommendationViewModel : Recommendation
                         currentRecommendation.explanation
                     )
                     this.recommendationViewModel.deleteRecommendation(recommendation)
+
                 }
+
                 Log.d("BookmarkStatus", "Bookmark status ${recommendation.bookmark} =? $check  for item ${currentRecommendation.name}")
             }
 
             binding.ToRecommendationDialogButton.setOnClickListener{
                 recommendation = currentRecommendation
-                //Dialog.show()
+                val recommendationDialog = RecommendationDialog(binding.root.context, currentRecommendation)
+                recommendationDialog.show()
 
             }
 
@@ -94,6 +106,7 @@ class RecommendationAdapter(private val recommendationViewModel : Recommendation
     override fun getItemId(position: Int): Long {
         return position.toLong()
     }
+
 
 }
 

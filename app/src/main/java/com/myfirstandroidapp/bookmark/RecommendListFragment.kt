@@ -16,7 +16,7 @@ class RecommendListFragment : Fragment() {
     private val recommendationViewModel: RecommendationViewModel by viewModels {
         RecommendationViewModel.Factory(requireActivity().application)
     }
-    private val adapter: RecommendationAdapter by lazy { RecommendationAdapter(recommendationViewModel) }
+    private val adapter: RecommendationAdapter by lazy { RecommendationAdapter(recommendationViewModel, true) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -16,7 +16,7 @@ class BookmarkFragment : Fragment() {
     private val recommendationViewModel: RecommendationViewModel by viewModels {
         RecommendationViewModel.Factory(requireActivity().application)
     } // 뷰모델 연결
-    private val adapter : RecommendationAdapter by lazy { RecommendationAdapter(recommendationViewModel) } // 어댑터 선언
+    private val adapter : RecommendationAdapter by lazy { RecommendationAdapter(recommendationViewModel, false) } // 어댑터 선언
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
