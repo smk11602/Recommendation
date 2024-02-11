@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <!--tools:context=".RecommendDialogFragment"-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="300dp"
+        android:layout_height="600dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/RecommendNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="운동 이름"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/RecommendTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="추천 시간 :"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/RecommendNameTextView"
+            app:layout_constraintStart_toStartOf="@id/RecommendNameTextView"
+            />
+
+        <TextView
+            android:id="@+id/RecommendTimeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/RecommendNameTextView"
+            app:layout_constraintStart_toEndOf="@id/RecommendTimeTextView"
+            />
+
+        <TextView
+            android:id="@+id/RecommendDifficultyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="난이도 : "
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/RecommendTimeTextView"
+            app:layout_constraintStart_toStartOf="@id/RecommendNameTextView"
+            />
+
+        <TextView
+            android:id="@+id/RecommendDifficultyValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/RecommendTimeTextView"
+            app:layout_constraintStart_toEndOf="@id/RecommendDifficultyTextView"
+            />
+
+
+        <Button
+            android:id="@+id/ToCalendarButton"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:text="캘린더에 추가"
+            android:textSize="11sp"
+            android:padding="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/RecommendDifficultyTextView"
+            app:layout_constraintStart_toStartOf="@id/RecommendTimeTextView" />
+
+
+        <TextView
+            android:id="@+id/RecommendExplanationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="운동 설명"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/ToCalendarButton"
+            app:layout_constraintStart_toStartOf="@id/RecommendNameTextView"
+            />
+
+        <TextView
+            android:id="@+id/RecommendExplanationValue"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/RecommendExplanationTextView"
+            app:layout_constraintStart_toStartOf="@id/RecommendExplanationTextView"
+            />
+
+        <Button
+            android:id="@+id/CloseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닫기"
+            android:textSize="13sp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
